@@ -1,11 +1,11 @@
-package lesson5;
+package Compass2.lesson5;
 
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 
 
-public class ThreeThreads {
+public class QueueThreeThreads {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
