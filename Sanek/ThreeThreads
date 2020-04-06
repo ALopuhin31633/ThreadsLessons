@@ -1,0 +1,54 @@
+package com.company;
+
+
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.BlockingQueue;
+
+public class Main {
+
+    public static void main(String[] args) throws InterruptedException {
+	// write your code here
+
+        BlockingQueue<String> queue1 = new ArrayBlockingQueue<>(100);
+
+        Thread thread1 = new Thread(()->{
+            try {
+                for (int i = 0; i < 3; i++) {
+                    queue1.put("i am thread 1!");
+                    System.err.println("i am a thread1 1!");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        Thread thread2 = new Thread(()->{
+            try {
+                for (int i = 0; i < 3; i++) {
+                    queue1.put("i am thread 2!");
+                    System.err.println("i am a thread1 2!");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+        Thread thread3 = new Thread(()->{
+            try {
+                for (int i = 0; i < 3; i++) {
+                    queue1.put("i am thread 3!");
+                    System.err.println("i am a thread1 3!");
+                }
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+
+        do {
+            System.err.println(queue1.take().toUpperCase());
+        } while (true);
+
+    }
+}
